@@ -1,10 +1,11 @@
 
-import { signInWithGoogleProvider } from '../../../utils/firebase/firebas.utils';
-
+import { signInWithGoogleProvider, createUserDocFromAuth } from '../../../utils/firebase/firebas.utils';
+//import { createUserDocFromAuth } from '../../../utils/firebase/firebas.utils';
 const SignIn = () => {
     const logGoogleUser = async () => {
-        const response = await signInWithGoogleProvider();
-        console.log(response);
+        const { user } = await signInWithGoogleProvider();
+      //  console.log(response);
+      const userDocRef = await createUserDocFromAuth(user);
     }
     return (
         <div>
